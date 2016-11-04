@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_five_days_avtivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingRight="300dp"
+    android:paddingLeft="300dp"
+    android:background="@color/colorPrimary"
+    tools:context="com.parisweather.activities.FiveDaysAvtivity">
+
+
+
+    <RelativeLayout
+        android:id="@+id/loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_centerInParent="true"
+            android:id="@+id/logo"
+            android:layout_margin="40dp"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:src="@drawable/cloud"/>
+        <ProgressBar
+            android:indeterminate="true"
+            android:indeterminateTintMode="src_atop"
+            android:indeterminateTint="@color/white"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/logo"
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <Button
+            android:id="@+id/tryagain"
+            android:visibility="gone"
+            android:layout_below="@id/logo"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Réessayer"/>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/root"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="4">
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_weight="3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <RelativeLayout
+            android:layout_weight="3"
+            android:id="@+id/frame"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:background="@color/colorPrimary">
+
+            <RelativeLayout
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/town"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Paris"
+                    android:textSize="25dp" />
+
+                <RelativeLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/rl"
+                    android:layout_below="@id/town"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+
+                    <ImageView
+                        android:layout_centerVertical="true"
+                        android:id="@+id/iconday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon01d" />
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/iconday"
+                        android:textColor="@color/white"
+                        android:id="@+id/description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="Clear" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@id/rl"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/white"
+                    android:id="@+id/temp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="45dp"
+                    android:text="9°"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@id/temp"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/white"
+                    android:id="@+id/minmax"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="9°/15°"
+                    android:textStyle="bold" />
+
+
+                <RelativeLayout
+                    android:layout_marginTop="20dp"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/rl2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/minmax">
+
+
+                    <RelativeLayout
+                        android:layout_marginRight="20dp"
+                        android:id="@+id/rlweed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_centerHorizontal="true"
+                            android:textColor="@color/white"
+                            android:id="@+id/speed"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="20KM"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_below="@id/speed"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="@color/white"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Vent" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_marginRight="20dp"
+                        android:id="@+id/rlhumidity"
+                        android:layout_toRightOf="@id/rlweed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_centerHorizontal="true"
+                            android:textColor="@color/white"
+                            android:id="@+id/humidity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="100%"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_below="@id/humidity"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="@color/white"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Humidité" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_marginRight="20dp"
+                        android:id="@+id/rlpressure"
+                        android:layout_toRightOf="@id/rlhumidity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_centerHorizontal="true"
+                            android:textColor="@color/white"
+                            android:id="@+id/pressure"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pression"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_below="@id/pressure"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="@color/white"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pression" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlclouds"
+                        android:layout_toRightOf="@id/rlpressure"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_centerHorizontal="true"
+                            android:textColor="@color/white"
+                            android:id="@+id/clouds"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nuageux"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_below="@id/clouds"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="@color/white"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nuageux" />
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/update"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last update at 0"
+                android:textStyle="italic"
+                android:layout_margin="10dp"
+                android:textColor="@color/white"/>
+        </RelativeLayout>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+    <android.support.v7.widget.RecyclerView
+        android:background="@color/white"
+        android:id="@+id/recycler_view"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false" />
+        </LinearLayout>
+
+
+</LinearLayout>

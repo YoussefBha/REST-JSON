@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_one_day"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/colorPrimary"
+    tools:context="com.parisweather.activities.OneDayActivity">
+
+
+    <RelativeLayout
+        android:layout_marginBottom="80dp"
+        android:layout_weight="3"
+        android:id="@+id/frame"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/town"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Paris"
+                android:textSize="25dp" />
+
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/rl"
+                android:layout_below="@id/town"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+                <ImageView
+                    android:layout_centerVertical="true"
+                    android:id="@+id/iconday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon01d" />
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/iconday"
+                    android:textColor="@color/white"
+                    android:id="@+id/description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="Clear" />
+
+            </RelativeLayout>
+
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/rl"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/white"
+                android:id="@+id/main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="main"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/main"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/white"
+                android:id="@+id/temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="45dp"
+                android:text="9°"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/temp"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/white"
+                android:id="@+id/minmax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9°/15°"
+                android:textStyle="bold" />
+
+
+
+            <RelativeLayout
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/rl2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/minmax">
+
+
+                <RelativeLayout
+                    android:layout_marginRight="20dp"
+                    android:id="@+id/rlmor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/white"
+                        android:id="@+id/mor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="20KM"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_below="@id/mor"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Matin" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginRight="20dp"
+                    android:id="@+id/rleve"
+                    android:layout_toRightOf="@id/rlmor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/white"
+                        android:id="@+id/eve"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="100%"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_below="@id/eve"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Après-midi" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginRight="20dp"
+                    android:id="@+id/rlnight"
+                    android:layout_toRightOf="@id/rleve"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/white"
+                        android:id="@+id/night"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pression"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_below="@id/night"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Soir" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlday"
+                    android:layout_toRightOf="@id/rlnight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/white"
+                        android:id="@+id/day"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nuageux"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_below="@id/day"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Moyenne" />
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/rl3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rl2">
+
+
+                <RelativeLayout
+                    android:layout_marginRight="20dp"
+                    android:id="@+id/rlweed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/white"
+                        android:id="@+id/speed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="20KM"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_below="@id/speed"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Vent" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginRight="20dp"
+                    android:id="@+id/rlhumidity"
+                    android:layout_toRightOf="@id/rlweed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/white"
+                        android:id="@+id/humidity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="100%"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_below="@id/humidity"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Humidité" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginRight="20dp"
+                    android:id="@+id/rlpressure"
+                    android:layout_toRightOf="@id/rlhumidity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/white"
+                        android:id="@+id/pressure"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pression"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_below="@id/pressure"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pression" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlclouds"
+                    android:layout_toRightOf="@id/rlpressure"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/white"
+                        android:id="@+id/clouds"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nuageux"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_below="@id/clouds"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nuageux" />
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+
+
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
