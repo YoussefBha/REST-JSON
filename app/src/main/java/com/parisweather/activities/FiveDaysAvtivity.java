@@ -49,7 +49,7 @@ import java.util.Locale;
 
 
 
-//Vue principale 5 jour
+//Five days activity
 public class FiveDaysAvtivity extends AppCompatActivity {
 
 
