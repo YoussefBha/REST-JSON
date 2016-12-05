@@ -102,15 +102,9 @@ public class FiveDaysAvtivity extends AppCompatActivity {
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                mSwipeRefreshLayout.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
 
                         new JSONParse().execute(Consts.ApiUrl);
-                        //Update done
-                        mSwipeRefreshLayout.setRefreshing(false);
-                    }
-                },2000);
+
             }
         });
 
@@ -335,6 +329,7 @@ public class FiveDaysAvtivity extends AppCompatActivity {
             if(temp.trim().equals("failed")){
                 disconnected();
             } else {
+                mSwipeRefreshLayout.setRefreshing(false);
                 SetupData();
             }
         }
