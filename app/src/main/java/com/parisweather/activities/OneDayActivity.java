@@ -23,7 +23,7 @@ import java.util.Locale;
  */
 
 
-//Vue details
+//Details activity
 public class OneDayActivity extends AppCompatActivity {
 
     //Declaration
