@@ -227,7 +227,7 @@ public class FiveDaysAvtivity extends AppCompatActivity {
             if(Utility.isNetworkAvailable(FiveDaysAvtivity.this)){
 
             try {
-                //connexion à l'url
+                //Connexion to service through service
                 URL url = new URL(strings[0]);
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
@@ -240,12 +240,12 @@ public class FiveDaysAvtivity extends AppCompatActivity {
                     builder.append(inputString);
                 }
 
-                //recuperation des objets ou des tableau JSON
+                //Getting JSON objects and array
 
                 JSONObject jsonobject = new JSONObject(builder.toString());
                 JSONArray jsonarray = jsonobject.getJSONArray("list");
 
-                //si la base de données local est vide ===> insertion
+                //if empty database===> insertion
                 if(weatherBDD.getWeathers().size() == 0){
                     for (int i = 0; i < jsonarray.length(); i++){
                         Weather weather = new Weather();
@@ -279,7 +279,7 @@ public class FiveDaysAvtivity extends AppCompatActivity {
                     editor.apply();
 
                 }
-                //sinon ===> mise à jour
+                //else ===> update
                 else {
                     for (int i = 0; i < jsonarray.length(); i++){
                         Weather weather = new Weather();
@@ -314,7 +314,7 @@ public class FiveDaysAvtivity extends AppCompatActivity {
 
                 urlConnection.disconnect();
             }
-            // Probleme l'hors de la recuperation des données
+            // Failed
             catch (IOException | JSONException e) {
                 e.printStackTrace();
                 disconnected();
@@ -328,10 +328,10 @@ public class FiveDaysAvtivity extends AppCompatActivity {
             return str.trim();
         }
 
-        //fontion d'après la tentative connexion
+        //Post getting data function
         @Override
         protected void onPostExecute(String temp) {
-            //test des données recupérés
+
             if(temp.trim().equals("failed")){
                 disconnected();
             } else {
