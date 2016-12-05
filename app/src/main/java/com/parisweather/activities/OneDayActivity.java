@@ -26,7 +26,7 @@ import java.util.Locale;
 //Details activity
 public class OneDayActivity extends AppCompatActivity {
 
-    //Declaration
+    //Init
     private TextView temp,description,speed,humidity,clouds,pressure,update,minmax,mor,eve,night,day,main;
     private ImageView icon;
 
@@ -36,15 +36,14 @@ public class OneDayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_one_day);
 
-        //Mise en place de l'actionBar
+        //setup actionbar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setElevation(0);
 
-        //Recuperation de l'id du jour depuis la vue principale
+        //getting day id
         Intent intent = getIntent();
         int id = intent.getIntExtra("id",0);
 
-        //Définion des elements graphiques
         temp = (TextView) findViewById(R.id.temp);
         description = (TextView) findViewById(R.id.description);
         speed = (TextView) findViewById(R.id.speed);
@@ -65,13 +64,12 @@ public class OneDayActivity extends AppCompatActivity {
 
 
 
-        //Acces à la base de données
+        //Acces to datababse
         WeatherBDD weatherBDD = new WeatherBDD(getApplicationContext());
         weatherBDD.open();
         Weather weather = weatherBDD.getWeatherById(id);
 
 
-        //mise en place des données
 
         java.util.Date time = new java.util.Date(Long.parseLong(weather.getTime())*1000);
         String d = new SimpleDateFormat("EEEE", Locale.FRENCH).format(time);
@@ -99,7 +97,7 @@ public class OneDayActivity extends AppCompatActivity {
     }
 
 
-    //fontion retour
+    //Backpressed
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
