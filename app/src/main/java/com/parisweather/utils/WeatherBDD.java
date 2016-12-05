@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * Created by YoussefBha on 01/11/2016.
  */
 
-//Classe de la gestion entre la base de données pour la classe meteo du jour
+//Manage weather class in database
 public class WeatherBDD {
 
 
@@ -39,7 +39,7 @@ public class WeatherBDD {
         return bdd;
     }
 
-    //Fontion insertion
+    //insert
     public long insertTop(Weather weather) {
 
 
@@ -64,7 +64,7 @@ public class WeatherBDD {
     }
 
 
-    //Fontion mise à jour
+    //Update
     public long Update(Weather weather) {
         ContentValues values = new ContentValues();
         values.put("id", weather.getId());
@@ -88,7 +88,7 @@ public class WeatherBDD {
 
 
 
-    //Fontion de recuperation de la meteo de tout les jours
+    //getting all weathers
     public ArrayList<Weather> getWeathers(){
 
         ArrayList<Weather> list = new ArrayList<Weather>();
@@ -124,7 +124,7 @@ public class WeatherBDD {
 
 
 
-    //Fontion de recuperation de la meteo du jour par id
+    //getting weather by id
     public Weather getWeatherById(int id){
 
         Weather weather = new Weather();

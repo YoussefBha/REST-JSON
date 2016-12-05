@@ -9,11 +9,12 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Created by YoussefBha on 01/11/2016.
  */
 
-//Classe de creation de la base des données local
+
+// SQLiteOpenHelper for the creation of the database
 
 public class DBHelper extends SQLiteOpenHelper{
 
-    //requete de la creation de la classe
+    //Sql query for table creation
     private static final String CREATE_WEATHER = "CREATE TABLE Weather(" +
             "id INTEGER," +
             "time TEXT," +
@@ -42,7 +43,7 @@ public class DBHelper extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // execution de la requete
+        // query execution
         db.execSQL(CREATE_WEATHER);
     }
 

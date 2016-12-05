@@ -11,7 +11,7 @@ import android.view.View;
  */
 
 
-//Surcharge de la classe RecyclerView.OnItemTouchListener 
+//Ovveload RecyclerView.OnItemTouchListener
 public class RecyclerItemClickListener implements RecyclerView.OnItemTouchListener {
 
     private OnItemClickListener mListener;

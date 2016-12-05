@@ -8,7 +8,7 @@ import android.net.NetworkInfo;
  * Created by YoussefBha on 01/11/2016.
  */
 
-//Classe de verification de la connexion internet
+//Checking internet connexion
 public class Utility {
 
     public static boolean isNetworkAvailable(Context context) {

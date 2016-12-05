@@ -5,8 +5,10 @@ package com.parisweather.entities;
  */
 
 
-//Entité Meteo du jour
+//Class weather
 public class Weather {
+
+
     public Weather(int id, String time, String day, String min, String max, String eve, String mor, String night, String pressure, String humidity, String main, String description, String icon, String speed, String deg, String clouds) {
         this.id = id;
         this.time = time;

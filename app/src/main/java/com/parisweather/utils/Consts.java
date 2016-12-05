@@ -6,7 +6,7 @@ package com.parisweather.utils;
  * Created by YoussefBha on 01/11/2016.
  */
 
-//classe des constantes des projets
+//Constants project
 public class Consts {
 
 

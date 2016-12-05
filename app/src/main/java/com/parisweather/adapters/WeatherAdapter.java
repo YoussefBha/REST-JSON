@@ -19,23 +19,23 @@ import java.util.Locale;
  * Created by YoussefBha on 01/11/2016.
  */
 
-//class adapter de la liste de la meteo par jour
+//Adapter for weather list
 public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.MyViewHolder> {
 
 
 
-    //declaration
+    //init
     private Context mContext;
     private ArrayList<Weather> weathers;
 
 
-    //Constructeur
+    //Constructor
     public WeatherAdapter(Context mContext, ArrayList<Weather> weathers) {
         this.mContext = mContext;
         this.weathers = weathers;
     }
 
-    //Vue d'un seul jour
+    //View for one item
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView day,max;
         public ImageView icon;
@@ -68,7 +68,7 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.MyViewHo
         return weathers.size();
     }
 
-    //mise en place des données de chaque jours
+    //Putting data in each listview item
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
 
