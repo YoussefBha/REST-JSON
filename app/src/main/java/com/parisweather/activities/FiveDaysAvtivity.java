@@ -223,7 +223,7 @@ public class FiveDaysAvtivity extends AppCompatActivity {
         protected String doInBackground(String... strings) {
             String str = "UNDEFINED";
 
-            //test de connexion internet
+            //Connexion test
             if(Utility.isNetworkAvailable(FiveDaysAvtivity.this)){
 
             try {
