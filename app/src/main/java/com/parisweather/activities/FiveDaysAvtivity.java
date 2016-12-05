@@ -53,7 +53,7 @@ import java.util.Locale;
 public class FiveDaysAvtivity extends AppCompatActivity {
 
 
-    //Declaration
+    //Init
 
     WeatherBDD weatherBDD;
 
@@ -72,14 +72,14 @@ public class FiveDaysAvtivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_five_days_avtivity);
 
-        //Cacher l'actionBar
+        //Hide actionBar
         getSupportActionBar().hide();
 
-        //Acces au base de données local
+        //Acces to database
         weatherBDD= new WeatherBDD(getApplicationContext());
         weatherBDD.open();
 
-        //Définion des elements graphiques
+        //Init graphic
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         temp = (TextView) findViewById(R.id.temp);
         description = (TextView) findViewById(R.id.description);
@@ -98,7 +98,7 @@ public class FiveDaysAvtivity extends AppCompatActivity {
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout);
 
 
-        // Fontion Swiperefresh pour rafraichir les données avec un délai de 2 secondes
+        // Swiperefresh to update database with data from URL
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -107,18 +107,18 @@ public class FiveDaysAvtivity extends AppCompatActivity {
                     public void run() {
 
                         new JSONParse().execute(Consts.ApiUrl);
-                        //avertie le SwipeRefreshLayout que la mise à jour a été effectuée
+                        //Update done
                         mSwipeRefreshLayout.setRefreshing(false);
                     }
                 },2000);
             }
         });
 
-        //fonction de recuperation des données JSON à travers l'url d'une maniére asynchrone
+        //AsyncTask execution to get data
         new JSONParse().execute(Consts.ApiUrl);
 
 
-        //fonction ressayer ou cas ou les données ne sont pas recupérés
+        //Connexion failed
         tryagain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -134,16 +134,16 @@ public class FiveDaysAvtivity extends AppCompatActivity {
 
 
 
-    //fonction de mise en place des données
+    //Show data
     private void SetupData(){
 
-        //recuperation de la metéo du jour actuel
+        //get current weather
         Weather weather = weatherBDD.getWeatherById(0);
 
         final WeatherAdapter weatherAdapter = new WeatherAdapter(this,weatherBDD.getWeathers());
 
 
-        //Affichage des données
+        //SetUp data
         temp.setText(weather.getDay()+"°");
         description.setText(weather.getMain().substring(0,1).toUpperCase() + weather.getMain().substring(1) );
         speed.setText(weather.getSpeed()+"m/s");
@@ -164,17 +164,17 @@ public class FiveDaysAvtivity extends AppCompatActivity {
 
 
 
-        //Liste des 5 jours de meteo
+        //Weather of five days
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(weatherAdapter);
 
-        //redirection ver la vue details de la meteo du jour
+        //Details weather of a day
         recyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override public void onItemClick(View view, int position) {
                         Intent i = new Intent(FiveDaysAvtivity.this, OneDayActivity.class);
-                        //envoie de l'id du jour en parametres
+                        //Day id
                         i.putExtra("id",weatherAdapter.getList().get(position).getId());
                         startActivity(i);
                     }
@@ -187,14 +187,14 @@ public class FiveDaysAvtivity extends AppCompatActivity {
     }
 
 
-    //fonction pas de connexion
+    //Connexion failed
     private void disconnected(){
         progressBar.setVisibility(View.GONE);
         tryagain.setVisibility(View.VISIBLE);
         logo.setImageResource(R.drawable.error);
     }
 
-    //surcharge de la fonction retour
+    //Back pressed
     @Override
     public void onBackPressed() {
         new AlertDialog.Builder(FiveDaysAvtivity.this)
@@ -212,7 +212,7 @@ public class FiveDaysAvtivity extends AppCompatActivity {
                 .show();
     }
 
-    //classe pour l'analyse et la recuperation des données JSON via l'url
+    //AsyncTask to get data from url
     private class JSONParse extends AsyncTask<String, Void, String> {
 
         public JSONParse() {
