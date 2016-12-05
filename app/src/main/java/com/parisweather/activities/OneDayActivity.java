@@ -84,7 +84,7 @@ public class OneDayActivity extends AppCompatActivity {
         description.setText(weather.getMain().substring(0,1).toUpperCase() + weather.getMain().substring(1) );
         speed.setText(weather.getSpeed()+"m/s");
         humidity.setText(weather.getHumidity()+"%");
-        pressure.setText(weather.getPressure()+"hPa");
+        pressure.setText(weather.getPressure()+" hPa");
         clouds.setText(weather.getClouds()+"%");
         minmax.setText(weather.getMax()+"°/"+weather.getMin()+"°");
         main.setText(weather.getDescription());
